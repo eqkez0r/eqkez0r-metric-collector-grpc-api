@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package metric_collector_grpc;
+
+option go_package = "metric_collector.v1";
+
+service MetricCollector{
+  rpc ReceiveMetric(ReceiveMetricRequest)
+      returns (ReceiveMetricResponse);
+
+  rpc ReceiveMetricBatch(ReceiveMetricBatchRequest)
+      returns (ReceiveMetricResponse);
+
+  rpc ReadMetric(ReadMetricRequest)
+      returns (ReadMetricResponse);
+
+  rpc ReadAllMetric(ReadAllMetricRequest)
+      returns (ReadAllMetricResponse);
+}
+
+message ReceiveMetricRequest{
+  Metric Metric = 1;
+}
+
+message ReceiveMetricResponse{
+}
+
+message ReceiveMetricBatchRequest{
+  repeated Metric Metrics = 1;
+}
+
+message ReceiveMetricBatchResponse{
+}
+
+message ReadMetricRequest{
+  string MetricName = 1;
+  string MetricType = 2;
+}
+
+message ReadMetricResponse{
+  Metric Metric = 1;
+}
+
+message ReadAllMetricRequest{
+
+}
+
+message ReadAllMetricResponse{
+  repeated Metric Metrics = 1;
+}
+
+message Metric{
+  string MetricName = 1;
+  string MetricType = 2;
+  optional int64 Counter = 3;
+  optional fixed64 Delta = 4;
+}

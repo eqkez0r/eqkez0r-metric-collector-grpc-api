@@ -1,0 +1,9 @@
+version: 3
+
+tasks:
+  build:
+    aliases:
+      - b
+    desc: generate api
+    cmds:
+      - protoc -I ./api ./api/metric_collector.proto --go_out=./grpc/metric_collector --go_opt=paths=source_relative --go-grpc_out=./grpc/metric_collector --go-grpc_opt=paths=source_relative
