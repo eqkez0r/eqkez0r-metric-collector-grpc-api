@@ -52,6 +52,6 @@ message ReadAllMetricResponse{
 message Metric{
   string MetricName = 1;
   string MetricType = 2;
-  optional int64 Counter = 3;
-  optional fixed64 Delta = 4;
+  optional int64 Delta = 3;
+  optional double Value = 4;
 }
