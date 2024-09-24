@@ -1,4 +1,4 @@
-module github.com/eqkez0r/eqkez0r-metric-collector-grpc-api
+module github.com/eqkez0r/metric-collector-grpc-api
 
 go 1.22.1
 
